@@ -4,48 +4,48 @@ using UnityEngine;
 
 public class GrabDetector : MonoBehaviour
 {
-    int c = 0, a = 0;
+    int a = 0;
     public Transform _t;
-    
-    bool IsInTrigger;
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Throwable")){
-            c++;
-            Debug.Log($"In Trigger {c}x");
-            IsInTrigger = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other) {
-        if(other.CompareTag("Throwable"))
-        {
-            Debug.Log($"Off Trigger {c}x");
-            IsInTrigger = false;
-        }
-    }
+    public bool IsInTrigger = false;
+    public bool IsHolding = false;
+    public string message = "smt";
 
     private void OnTriggerStay2D(Collider2D other) {
         
-        if(Input.GetKeyDown(KeyCode.Z)){
-            if(other.CompareTag("Throwable")){
+        showGui = true;
+        if(Input.GetKey(KeyCode.Z)){
+            if(other.CompareTag("Throwable") && IsHolding == false ){
                 a++;
-                Debug.Log("Z Key pressed " + a);
-                Destroy(other.gameObject);
+                Debug.Log("Z Key pressed ");
+                other.transform.position = new Vector3(0,1,0);
+                IsHolding = true;
+                //For picking up object, when picked up Isholding object is true
             } 
         }
+       
     }
+    /*
+        ! Fix NOWWW hsihdioahodhhji9sfjiodfiio
+        !this is absolutely garbage please fix it right now or i will cry 
+        * TODO: fasjfopjajsop
+        ? help  saopfjaosfjpoajsfpeerjiowjioefjioefjkoefjkofjkfjsopjfdosdfjopsfopdfopdfopdpdpdssfosdopdfsdfkopsfkopsfoksksdpf-djf0-sdjfjf-f-wjfowns0nnfsnfsdf
+    */ 
+
+    void OnGUI()
+    {
+        if(showGui)
+        GUI.Box(new Rect(0,0,10,10),"Press E to pick " + message);
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(showGui && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("e pressed");
+            //Do some stuffs like health
+            Destroy(gameObject); //Remove the item
         }
     }
 
-    void DisplayKey()
-    {
-        
-    }
 }
