@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float Jumpforce = 15f;
 
     public Transform _t;
-
-    void OnCollisionEnter(Collision other) {
-        
+    bool isGrounded;
+    [SerializeField] bool IsOnJumpDelay;
+    // N
+    void Start() {
+        isGrounded = true;
+        IsOnJumpDelay = false;
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     void Update()
@@ -24,25 +28,29 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
 
-    bool IsGrounded()
-    {
-        Physics2D.Raycast(boxCollider2d.bounds.center, Vector2.down, boxCollider2d.bounds.extents.y + .01);
+    IEnumerator wait(float waitTime){ //creating a function
+        yield return new WaitForSeconds(waitTime); //tell unity to wait
     }
+
     void move()
     {
         _t = transform;
         //Get Input
         float x =  Input.GetAxisRaw("Horizontal"); //? Move
+        
         //is Running
         float run = 1f;
         if(Input.GetKey(KeyCode.LeftShift))
         {
         run = RunMutiplier;
         }
+
         //horizontal speed calculation
-        float hs = x * speed * run * Time.deltaTime;
+        float hs = x * speed * run;
+
         //Move Player
-        _t.position += new Vector3(hs, 0, 0);
+        rb.velocity = new Vector2(hs,rb.velocity.y);
+
         //flip player to moving direction
         if (x < 0) {_t.localScale = new Vector3(2,2,1); }
         else if (x > 0){_t.localScale = new Vector3(-2,2,1); }
@@ -50,11 +58,26 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded)
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && IsOnJumpDelay == false)
         {
+            //Add force to the y axis to do a jump action
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, Jumpforce), ForceMode2D.Impulse);
-            IsGrounded = false;
         }
     }
 
+    
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Ground" && isGrounded == false)
+         {
+             isGrounded = true;
+         }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+         {
+             isGrounded = false;
+         }
+    }
 }
