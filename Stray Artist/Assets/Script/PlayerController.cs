@@ -14,22 +14,17 @@ public class PlayerController : MonoBehaviour
 
     public Transform _t;
     bool isGrounded;
-    [SerializeField] bool IsOnJumpDelay;
     // N
     void Start() {
         isGrounded = true;
-        IsOnJumpDelay = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     void Update()
     {
+        //Check input every frame
         move();
         Jump();
-    }
-
-    IEnumerator wait(float waitTime){ //creating a function
-        yield return new WaitForSeconds(waitTime); //tell unity to wait
     }
 
     void move()
@@ -58,7 +53,8 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && IsOnJumpDelay == false)
+        //Check if player is grounded when jump
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true )
         {
             //Add force to the y axis to do a jump action
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, Jumpforce), ForceMode2D.Impulse);
@@ -67,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     
     void OnCollisionEnter2D(Collision2D other) {
+        //On collision with the ground => enable jump
         if (other.gameObject.tag == "Ground" && isGrounded == false)
          {
              isGrounded = true;
@@ -75,6 +72,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D other)
     {
+        //exiting the collision with the ground => disable jump
         if (other.gameObject.tag == "Ground")
          {
              isGrounded = false;
