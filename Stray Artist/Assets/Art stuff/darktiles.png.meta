@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -460,6 +461,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      darktiles_5: 5698039996269444275
+      darktiles_13: 6594068889516150558
+      darktiles_7: -1414749337180718935
+      darktiles_9: -1674511819145007227
+      darktiles_2: 2683651385845640545
+      darktiles_1: 2782002659655056819
+      darktiles_8: 5596392537242359348
+      darktiles_3: 497728095187245679
+      darktiles_11: 6507183254752958480
+      darktiles_4: -1727538869468065031
+      darktiles_12: -8713030107860897634
+      darktiles_6: -8392701479206108712
+      darktiles_0: 945865909026762200
+      darktiles_10: -5707171505841029133
+      darktiles_14: 8857050462658823422
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

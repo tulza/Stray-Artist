@@ -13,11 +13,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float Jumpforce = 15f;
 
     public Transform _t;
-    bool isGrounded;
-    // N
+    public bool isGrounded;
+    public float PlayerScaleX;
+    
+    
+    // Start is called before the first frame update
     void Start() {
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody2D>();
+        _t = transform;
+
+        //Get player's localscale in x axis for later flipping
+        PlayerScaleX = _t.localScale.x;
     }
     // Update is called once per frame
     void Update()
@@ -29,9 +36,8 @@ public class PlayerController : MonoBehaviour
 
     void move()
     {
-        _t = transform;
         //Get Input
-        float x =  Input.GetAxisRaw("Horizontal"); //? Move
+        float x =  Input.GetAxisRaw("Horizontal");
         
         //is Running
         float run = 1f;
@@ -46,9 +52,11 @@ public class PlayerController : MonoBehaviour
         //Move Player
         rb.velocity = new Vector2(hs,rb.velocity.y);
 
-        //flip player to moving direction
-        if (x < 0) {_t.localScale = new Vector3(2,2,1); }
-        else if (x > 0){_t.localScale = new Vector3(-2,2,1); }
+        
+
+        //flip player to moving direction via
+        if (x < 0) { _t.localScale = new Vector3(PlayerScaleX, _t.localScale.y,1); }
+        else if (x > 0){ _t.localScale = new Vector3(-PlayerScaleX, _t.localScale.y,1); }
     }
 
     void Jump()
