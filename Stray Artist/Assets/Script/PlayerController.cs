@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Tsting
+    [SerializeField] float accel;
 
+    //Physic var
     Rigidbody2D rb;
+    public Transform _t;
 
+    public float PlayerScaleX;
+
+    //Movement Var
     [SerializeField] float speed = 8f;
     [SerializeField] float RunMutiplier = 1.5f;
 
     [SerializeField] float Jumpforce = 15f;
 
-    public Transform _t;
-    public bool isGrounded;
-    public float PlayerScaleX;
+    [SerializeField] float MaxAccel = 3f;
     
+    public bool isGrounded;
     
     // Start is called before the first frame update
     void Start() {
@@ -32,13 +38,19 @@ public class PlayerController : MonoBehaviour
         //Check input every frame
         move();
         Jump();
+        acceleration();
     }
 
     void move()
     {
         //Get Input
         float x =  Input.GetAxisRaw("Horizontal");
-        
+
+        //Acceleration
+        //if accel is less than max accel and greater than max accel opp direction
+        if (accel <= MaxAccel && accel >= -MaxAccel)
+        accel += 0.2f * x * Time.deltaTime;
+
         //is Running
         float run = 1f;
         if(Input.GetKey(KeyCode.LeftShift))
@@ -47,12 +59,10 @@ public class PlayerController : MonoBehaviour
         }
 
         //horizontal speed calculation
-        float hs = x * speed * run;
-
+        float hs = x * speed * run * Time.deltaTime * 300;
+        Debug.Log(hs);
         //Move Player
         rb.velocity = new Vector2(hs,rb.velocity.y);
-
-        
 
         //flip player to moving direction via
         if (x < 0) { _t.localScale = new Vector3(PlayerScaleX, _t.localScale.y,1); }
@@ -67,6 +77,22 @@ public class PlayerController : MonoBehaviour
             //Add force to the y axis to do a jump action
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, Jumpforce), ForceMode2D.Impulse);
         }
+    }
+
+    void acceleration()
+    {
+        //Get Input
+        float x =  Input.GetAxisRaw("Horizontal");
+
+        float acs = accel * Time.deltaTime * 300;
+        //if player stop moving
+        if(x == 0)
+        {
+        accel -= (accel * 0.8f * Time.deltaTime);
+        }
+        Debug.Log(x);
+
+        rb.velocity = new Vector2((rb.velocity.x + acs),rb.velocity.y);
     }
 
     
