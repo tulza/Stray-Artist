@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Tsting
-    [SerializeField] float accel;
-
     //Physic var
     Rigidbody2D rb;
     public Transform _t;
@@ -18,8 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float RunMutiplier = 1.5f;
 
     [SerializeField] float Jumpforce = 15f;
-
-    [SerializeField] float MaxAccel = 3f;
     
     public bool isGrounded;
     
@@ -38,18 +33,12 @@ public class PlayerController : MonoBehaviour
         //Check input every frame
         move();
         Jump();
-        acceleration();
     }
 
     void move()
     {
         //Get Input
         float x =  Input.GetAxisRaw("Horizontal");
-
-        //Acceleration
-        //if accel is less than max accel and greater than max accel opp direction
-        if (accel <= MaxAccel && accel >= -MaxAccel)
-        accel += 0.2f * x * Time.deltaTime;
 
         //is Running
         float run = 1f;
@@ -59,7 +48,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //horizontal speed calculation
-        float hs = x * speed * run * Time.deltaTime * 300;
+        float hs = x * speed * run * Time.deltaTime * 500;
         Debug.Log(hs);
         //Move Player
         rb.velocity = new Vector2(hs,rb.velocity.y);
@@ -79,21 +68,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void acceleration()
-    {
-        //Get Input
-        float x =  Input.GetAxisRaw("Horizontal");
-
-        float acs = accel * Time.deltaTime * 300;
-        //if player stop moving
-        if(x == 0)
-        {
-        accel -= (accel * 0.8f * Time.deltaTime);
-        }
-        Debug.Log(x);
-
-        rb.velocity = new Vector2((rb.velocity.x + acs),rb.velocity.y);
-    }
 
     
     void OnCollisionEnter2D(Collision2D other) {

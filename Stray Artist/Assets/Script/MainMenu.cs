@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public void Achievement()
+    {
+        Debug.Log("Load Achievement Menu");
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Menu"));
+    }   
+
     public void LoadGame()
     {
         Debug.Log("Load Game");
