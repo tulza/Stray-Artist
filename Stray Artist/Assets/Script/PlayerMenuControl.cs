@@ -8,7 +8,7 @@ public class PlayerMenuControl : MonoBehaviour
     public bool GameIsPause;
 
     //Start is called before the first frame update
-    private void Awake() {
+    private void Start() {
         GameIsPause = false;
         EscapeMenuUI.SetActive(false);
     }

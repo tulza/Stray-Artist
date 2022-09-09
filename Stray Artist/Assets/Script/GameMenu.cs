@@ -18,6 +18,7 @@ public class GameMenu : MonoBehaviour
     public void SaveAndExit()
     {
         Debug.Log("Exitting");
+        SceneManager.UnloadScene("Game");
         SceneManager.LoadScene("Main Menu");
     }
 }

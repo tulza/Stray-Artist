@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
 
         //horizontal speed calculation
         float hs = x * speed * run * Time.deltaTime * 500;
-        Debug.Log(hs);
         //Move Player
         rb.velocity = new Vector2(hs,rb.velocity.y);
 
