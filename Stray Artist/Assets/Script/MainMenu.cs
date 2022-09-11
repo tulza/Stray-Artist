@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //The method runs inside unity and does not require Start() or Update()
     public void Achievement()
     {
         Debug.Log("Load Achievement Menu");

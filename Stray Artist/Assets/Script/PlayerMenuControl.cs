@@ -19,11 +19,13 @@ public class PlayerMenuControl : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
+            //If game is already paused, resume game
             if(GameIsPause)
             {
                 Debug.Log("Resuming");
                 Resume();
             }
+            //If game is not paused, pause game
             else
             {
                 Debug.Log("Pausing");
@@ -34,6 +36,7 @@ public class PlayerMenuControl : MonoBehaviour
 
     void Pause()
     {
+        //Open up the EscapeUI, stops time.
         EscapeMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPause = true;
@@ -41,6 +44,7 @@ public class PlayerMenuControl : MonoBehaviour
 
     void Resume()
     {
+        //Close up the EscapeUI, resume time.
         EscapeMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPause = false;
