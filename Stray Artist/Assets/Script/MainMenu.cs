@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public void LoadGame()
     {
         Debug.Log("Load Game");
+        //Load Scene Game
         SceneManager.LoadScene("Game");
     }   
 

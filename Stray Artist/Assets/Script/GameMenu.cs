@@ -17,8 +17,8 @@ public class GameMenu : MonoBehaviour
 
     public void SaveAndExit()
     {
+        Time.timeScale = 1f;
         Debug.Log("Exitting");
-        SceneManager.UnloadScene("Game");
         SceneManager.LoadScene("Main Menu");
     }
 }

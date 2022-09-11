@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         float run = 1f;
         if(Input.GetKey(KeyCode.LeftShift))
         {
-        run = RunMutiplier;
+            run = RunMutiplier;
         }
 
         //horizontal speed calculation
