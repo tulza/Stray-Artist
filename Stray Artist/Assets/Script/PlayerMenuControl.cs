@@ -9,6 +9,7 @@ public class PlayerMenuControl : MonoBehaviour
 
     //Start is called before the first frame update
     private void Start() {
+        testing();
         GameIsPause = false;
         EscapeMenuUI.SetActive(false);
     }
@@ -17,7 +18,7 @@ public class PlayerMenuControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             //If game is already paused, resume game
             if(GameIsPause)
@@ -48,5 +49,14 @@ public class PlayerMenuControl : MonoBehaviour
         EscapeMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPause = false;
+    }
+
+    Transform[] testing()
+    {
+         Trasform[] gameObjects = GameObject.FindGameObjectsWithTag ("Checkpoint");
+        foreach(Transform cp in gameObjects)
+        {
+            System.Console.WriteLine(gameObjects.transform);
+        }
     }
 }
