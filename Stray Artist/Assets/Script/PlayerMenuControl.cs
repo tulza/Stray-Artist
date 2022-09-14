@@ -9,7 +9,6 @@ public class PlayerMenuControl : MonoBehaviour
 
     //Start is called before the first frame update
     private void Start() {
-        testing();
         GameIsPause = false;
         EscapeMenuUI.SetActive(false);
     }
@@ -49,14 +48,5 @@ public class PlayerMenuControl : MonoBehaviour
         EscapeMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPause = false;
-    }
-
-    Transform[] testing()
-    {
-         Trasform[] gameObjects = GameObject.FindGameObjectsWithTag ("Checkpoint");
-        foreach(Transform cp in gameObjects)
-        {
-            System.Console.WriteLine(gameObjects.transform);
-        }
     }
 }

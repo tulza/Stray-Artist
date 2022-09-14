@@ -19,7 +19,7 @@ public class LoadCheckpoint : MonoBehaviour
         //alpha of UI starts at 0 meaning 0 opacity
         UIFade.alpha = 0;
         LoadSave();
-        testing();
+        Savetesting();
     }
 
     void Update() 
@@ -44,8 +44,6 @@ public class LoadCheckpoint : MonoBehaviour
             }
             
         }
-
-
     }
 
     public void NewCheckpoint()
@@ -96,13 +94,15 @@ public class LoadCheckpoint : MonoBehaviour
         }  
     }
 
-    void testing()
+    void Savetesting()
     {
-         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Checkpoint");
-
-        foreach(GameObject oj in gameObjects)
-        {
-            System.Console.WriteLine(oj.Transform.x,oj.Transform.y   );
-        }
+        //Find all game object with tag Checkpoint
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Checkpoint");
+            //Testing to see if it is able to log position
+            //for future game saving mech
+            foreach(GameObject oj in gameObjects)
+            {
+                Debug.Log($"{oj.name}\n{oj.transform.position}");
+            }
     }
 }
