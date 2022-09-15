@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,7 +6,8 @@ using UnityEngine;
 
 public class LoadCheckpoint : MonoBehaviour
 {   
-    string Default = @"";
+    [SerializeField] public GameObject Player;
+    [SerializeField] public GameObject CpLocation;
     string textFile = @"Assets/Save/Save.txt";
     bool CanSave = false;
     bool IsFadeIn = false;
@@ -13,24 +15,23 @@ public class LoadCheckpoint : MonoBehaviour
     //interaction indicator UI
     public CanvasGroup UIFade;
 
-    // Start is called before the first frame update
-    void Start()
+    // 
+    void Awake()
     {
         //alpha of UI starts at 0 meaning 0 opacity
         UIFade.alpha = 0;
         LoadSave();
-        Savetesting();
     }
 
     void Update() 
     {
+        UIFading();
+
         if(Input.GetKeyDown(KeyCode.E) && CanSave == true)
         {
+            Debug.Log($"saving at {CpLocation.name}");
             WriteSave();
         }
-
-        UIFading();
-           
     }
 
     public void LoadSave()
@@ -42,41 +43,28 @@ public class LoadCheckpoint : MonoBehaviour
             {
                 sw.Close();
             }
-            
         }
-    }
 
-    public void NewCheckpoint()
-    {
+        string[] pos = File.ReadAllText(textFile).Split(',');
+        float[] SaveAxis = new float[3]{0,-102,0};
 
-    }
-
-    //entering the trigger of checkpoint enables saving and UI 
-    void OnTriggerEnter2D(Collider2D other) 
-    {
-        if(other.gameObject.tag == "Checkpoint")
+        for(int i = 0; i < pos.Length-1 ; i++)
         {
-            Debug.Log("Enter Checkpoint");
-            CanSave = true;
-            IsFadeIn = true;
+            SaveAxis[i] = float.Parse(pos[i].Trim('(').Trim(')'));
+            Debug.Log(SaveAxis[i]);
         }
+        Player.transform.position = new Vector3(SaveAxis[0],SaveAxis[1],SaveAxis[2]);
+       
     }
 
-    //exiting the trigger of checkpoint disables saving and UI
-    void OnTriggerExit2D(Collider2D other) 
-    {
-        if(other.gameObject.tag == "Checkpoint")
-        {
-            Debug.Log("Exit Checkpoint");
-            CanSave = false;
-            IsFadeIn = false;
-        }
-    }
+
 
     void WriteSave()
     {
-
-        string text = File.ReadAllText(textFile); 
+        using (StreamWriter sw = File.CreateText(textFile)) 
+        {
+            sw.WriteLine(CpLocation.transform.position);
+        }
     }
 
     void UIFading()
@@ -94,15 +82,27 @@ public class LoadCheckpoint : MonoBehaviour
         }  
     }
 
-    void Savetesting()
+    //entering the trigger of checkpoint enables saving and UI 
+    void OnTriggerEnter2D(Collider2D other) 
     {
-        //Find all game object with tag Checkpoint
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Checkpoint");
-            //Testing to see if it is able to log position
-            //for future game saving mech
-            foreach(GameObject oj in gameObjects)
-            {
-                Debug.Log($"{oj.name}\n{oj.transform.position}");
-            }
+        if(other.gameObject.tag == "Checkpoint")
+        {
+            CanSave = true;
+            IsFadeIn = true;
+
+            //Set the trigger's gameobject as Checkpoint location when saving
+            CpLocation = other.gameObject;
+        }
     }
+
+    //exiting the trigger of checkpoint disables saving and UI
+    void OnTriggerExit2D(Collider2D other) 
+    {
+        if(other.gameObject.tag == "Checkpoint")
+        {
+            CanSave = false;
+            IsFadeIn = false;
+        }
+    }
+
 }
