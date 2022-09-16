@@ -11,11 +11,9 @@ public class PlayerController : MonoBehaviour
     public float PlayerScaleX;
 
     //Movement Var
-    [SerializeField] float speed = 8f;
-    [SerializeField] float RunMutiplier = 1.5f;
-
-    [SerializeField] float Jumpforce = 15f;
-    
+    [SerializeField] public float speed = 3f;
+    [SerializeField] public float RunMutiplier = 1.5f;
+    [SerializeField] public float Jumpforce = 15f;
     public bool isGrounded;
     
     // Start is called before the first frame update

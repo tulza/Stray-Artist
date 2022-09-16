@@ -451,8 +451,8 @@ GameObject:
   - component: {fileID: 400064197}
   - component: {fileID: 400064201}
   - component: {fileID: 400064200}
-  - component: {fileID: 400064199}
   - component: {fileID: 400064202}
+  - component: {fileID: 400064203}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -530,24 +530,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &400064199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400064196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382ac79abaaeeea459c5adec5a649552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _t: {fileID: 400064198}
-  PlayerScaleX: 0
-  speed: 8
-  RunMutiplier: 1.5
-  Jumpforce: 15
-  isGrounded: 0
 --- !u!50 &400064200
 Rigidbody2D:
   serializedVersion: 4
@@ -610,6 +592,24 @@ MonoBehaviour:
   Player: {fileID: 400064196}
   CpLocation: {fileID: 0}
   UIFade: {fileID: 468141435}
+--- !u!114 &400064203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400064196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382ac79abaaeeea459c5adec5a649552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _t: {fileID: 0}
+  PlayerScaleX: 0
+  speed: 2
+  RunMutiplier: 1.5
+  Jumpforce: 15
+  isGrounded: 0
 --- !u!1 &409730364
 GameObject:
   m_ObjectHideFlags: 0
