@@ -3,9 +3,11 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadCheckpoint : MonoBehaviour
 {   
+    
     [SerializeField] public GameObject Player;
     [SerializeField] public GameObject CpLocation;
     string textFile = @"Assets/Save/Save.txt";
@@ -21,6 +23,7 @@ public class LoadCheckpoint : MonoBehaviour
         //alpha of UI starts at 0 meaning 0 opacity
         UIFade.alpha = 0;
         LoadSave();
+        LoadPaint();
     }
 
     void Update() 
@@ -30,10 +33,24 @@ public class LoadCheckpoint : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && CanSave == true)
         {
             Debug.Log($"saving at {CpLocation.name}");
+            foreach(string paint in PaintCollecting.PaintsCollected)
+            {
+                //testing to see if it would collect
+                Debug.Log(paint);
+            }
             WriteSave();
         }
     }
 
+    void LoadPaint()
+    {
+        //Foreach paint that has been collected 
+        foreach(string paint in PaintCollecting.PaintsCollected)
+        {
+            //Find the paint's game object and set it inactive because it's already collected
+            GameObject.Find(paint).SetActive(false);
+        }
+    }
     public void LoadSave()
     {
         // If there isn't a file create a file
@@ -44,26 +61,39 @@ public class LoadCheckpoint : MonoBehaviour
                 sw.Close();
             }
         }
+        //read content of save and split by line
+        string[] ReadFile = File.ReadAllText(textFile).Split("\n");
 
-        string[] pos = File.ReadAllText(textFile).Split(',');
+
+        //Get saved player position
+        string[] PlayerPosition = ReadFile[0].Split(",");
+        //Array for player's position when loading in, if there's no save then load default location
         float[] SaveAxis = new float[3]{0,-102,0};
-
-        for(int i = 0; i < pos.Length-1 ; i++)
+        
+        //find array size
+        for(int i = 0; i < PlayerPosition.Length-1 ; i++)
         {
-            SaveAxis[i] = float.Parse(pos[i].Trim('(').Trim(')'));
-            Debug.Log(SaveAxis[i]);
+            //Convert into float and trim the bracket
+            SaveAxis[i] = float.Parse(PlayerPosition[i].Trim('(').Trim(')'));
         }
         Player.transform.position = new Vector3(SaveAxis[0],SaveAxis[1],SaveAxis[2]);
        
+       string[] PaintCollected = ReadFile[1].Split(",");
+       
+        //Foreach paint that has been collected 
+        foreach(string paint in PaintCollected )
+        {
+            //Find the paint's game object and hides because it's already collected
+            GameObject.Find(paint.Trim()).SetActive(false);
+        }
     }
-
-
 
     void WriteSave()
     {
         using (StreamWriter sw = File.CreateText(textFile)) 
         {
             sw.WriteLine(CpLocation.transform.position);
+            sw.WriteLine(string.Join(", ", PaintCollecting.PaintsCollected.ToArray()));
         }
     }
 

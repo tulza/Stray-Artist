@@ -5,12 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    //The method runs inside unity and does not require Start() or Update()
+    [SerializeField] GameObject AchievementUI;
+    [SerializeField] GameObject ButtonUI;
+    void Start() {
+        AchievementUI.SetActive(false);
+        ButtonUI.SetActive(true);
+    }
+
+    //These methods runs inside unity and does not require Start() or Update()
     public void Achievement()
     {
         Debug.Log("Load Achievement Menu");
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Menu"));
-    }   
+       AchievementUI.SetActive(true);
+       ButtonUI.SetActive(false);
+    }
+    public void UnLoadAchievement()
+    {
+        Debug.Log("UnLoading Achievement Menu");
+       AchievementUI.SetActive(false);
+       ButtonUI.SetActive(true);
+    }      
 
     public void LoadGame()
     {
