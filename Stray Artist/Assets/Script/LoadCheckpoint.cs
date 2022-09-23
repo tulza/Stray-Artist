@@ -61,13 +61,13 @@ public class LoadCheckpoint : MonoBehaviour
                 sw.Close();
             }
         }
+    
         //read content of save and split by line
-        string[] ReadFile = File.ReadAllText(textFile).Split("\n");
+        string[] ReadFile = File.ReadAllText(textFile).Split(Environment.NewLine);
 
-
+        db($">{ReadFile[0]}\n>{ReadFile[1]}");
         //Get saved player position
         string[] PlayerPosition = ReadFile[0].Split(",");
-        //Array for player's position when loading in, if there's no save then load default location
         float[] SaveAxis = new float[3]{0,-102,0};
         
         //find array size
@@ -78,13 +78,17 @@ public class LoadCheckpoint : MonoBehaviour
         }
         Player.transform.position = new Vector3(SaveAxis[0],SaveAxis[1],SaveAxis[2]);
        
+       
        string[] PaintCollected = ReadFile[1].Split(",");
        
         //Foreach paint that has been collected 
         foreach(string paint in PaintCollected )
         {
-            //Find the paint's game object and hides because it's already collected
-            GameObject.Find(paint.Trim()).SetActive(false);
+            if(String.IsNullOrWhiteSpace(paint) == true)
+            {
+                //Find the paint's game object and hides because it's already collected
+                GameObject.Find(paint.Trim()).SetActive(false); 
+            }
         }
     }
 
@@ -135,4 +139,9 @@ public class LoadCheckpoint : MonoBehaviour
         }
     }
 
+
+    void db(string a)
+    {
+        Debug.Log($"==================\n{a}\n==================");
+    }
 }
