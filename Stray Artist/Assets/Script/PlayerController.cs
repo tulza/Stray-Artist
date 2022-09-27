@@ -25,12 +25,17 @@ public class PlayerController : MonoBehaviour
         //Get player's localscale in x axis for later flipping
         PlayerScaleX = _t.localScale.x;
     }
-    // Update is called once per frame
+    
     void Update()
+    {
+        Jump();
+    }
+    
+    // Update is called once per frame
+    void FixedUpdate()
     {
         //Check input every frame
         move();
-        Jump();
     }
 
     void move()
@@ -46,7 +51,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //horizontal speed calculation
-        float hs = x * speed * run * Time.deltaTime * 500;
+        float hs = x * speed * run * Time.deltaTime * 200;
         //Move Player
         rb.velocity = new Vector2(hs,rb.velocity.y);
 

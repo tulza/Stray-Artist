@@ -10,20 +10,26 @@ public class LoadCheckpoint : MonoBehaviour
     
     [SerializeField] public GameObject Player;
     [SerializeField] public GameObject CpLocation;
-    string textFile = @"Assets/Save/Save.txt";
+    string LocationSavetxt = @"Assets/Save/LocationSave.txt";
+    string PaintSavetxt = @"Assets/Save/PaintSave.txt";
     bool CanSave = false;
     bool IsFadeIn = false;
 
     //interaction indicator UI
     public CanvasGroup UIFade;
 
-    // 
+    void Start()
+    {
+        //Load all 
+        LoadPaint();
+    }
+    
+
     void Awake()
     {
         //alpha of UI starts at 0 meaning 0 opacity
         UIFade.alpha = 0;
         LoadSave();
-        LoadPaint();
     }
 
     void Update() 
@@ -44,47 +50,58 @@ public class LoadCheckpoint : MonoBehaviour
 
     void LoadPaint()
     {
-        //Foreach paint that has been collected 
-        foreach(string paint in PaintCollecting.PaintsCollected)
+        string[] PaintCollected = File.ReadAllText(PaintSavetxt).Split(",");
+
+        //Foreach paint that has been collected add into the list of paint
+        foreach(string paint in PaintCollected)
         {
-            //Find the paint's game object and set it inactive because it's already collected
-            GameObject.Find(paint).SetActive(false);
+           PaintCollecting.PaintsCollected.Add(paint.Trim());
         }
     }
+
     public void LoadSave()
     {
         // If there isn't a file create a file
-        if (! File.Exists(textFile))
+        if (! File.Exists(LocationSavetxt))
         {
-            using (StreamWriter sw = File.CreateText(textFile))
+            using (StreamWriter sw = File.CreateText(LocationSavetxt))
+            {
+                sw.Close();
+            }
+        }
+        if (! File.Exists(PaintSavetxt))
+        {
+            using (StreamWriter sw = File.CreateText(PaintSavetxt))
             {
                 sw.Close();
             }
         }
     
+    
         //read content of save and split by line
-        string[] ReadFile = File.ReadAllText(textFile).Split(Environment.NewLine);
+        string ReadLctTxt = File.ReadAllText(LocationSavetxt);
 
-        db($">{ReadFile[0]}\n>{ReadFile[1]}");
         //Get saved player position
-        string[] PlayerPosition = ReadFile[0].Split(",");
-        float[] SaveAxis = new float[3]{0,-102,0};
+        string[] PlayerPosition = ReadLctTxt.Split(",");
+        float[] SaveAxis = new float[3]{0,-102,0}; // default
         
-        //find array size
+        //get variable
         for(int i = 0; i < PlayerPosition.Length-1 ; i++)
         {
             //Convert into float and trim the bracket
             SaveAxis[i] = float.Parse(PlayerPosition[i].Trim('(').Trim(')'));
         }
+        //load player to save location
         Player.transform.position = new Vector3(SaveAxis[0],SaveAxis[1],SaveAxis[2]);
        
        
-       string[] PaintCollected = ReadFile[1].Split(",");
-       
+
+       //Read Paint save
+       string[] PaintCollected = File.ReadAllText(PaintSavetxt).Split(",");
         //Foreach paint that has been collected 
         foreach(string paint in PaintCollected )
         {
-            if(String.IsNullOrWhiteSpace(paint) == true)
+            if(string.IsNullOrWhiteSpace(paint) == false)
             {
                 //Find the paint's game object and hides because it's already collected
                 GameObject.Find(paint.Trim()).SetActive(false); 
@@ -94,9 +111,15 @@ public class LoadCheckpoint : MonoBehaviour
 
     void WriteSave()
     {
-        using (StreamWriter sw = File.CreateText(textFile)) 
+        using (StreamWriter sw = File.CreateText(LocationSavetxt)) 
         {
+            //Save Location
             sw.WriteLine(CpLocation.transform.position);
+        }
+
+        using (StreamWriter sw = File.CreateText(PaintSavetxt)) 
+        {
+            //Save collected Paint
             sw.WriteLine(string.Join(", ", PaintCollecting.PaintsCollected.ToArray()));
         }
     }
