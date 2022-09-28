@@ -76,7 +76,7 @@ public class LoadCheckpoint : MonoBehaviour
 
         //Get saved player position
         string[] PlayerPosition = ReadLctTxt.Split(",");
-        float[] SaveAxis = new float[3]{0,-102,0}; // default pos
+        float[] SaveAxis = new float[3]; // default pos
         
         //convert string from to as float array
         for(int i = 0; i < PlayerPosition.Length-1 ; i++)
@@ -84,7 +84,7 @@ public class LoadCheckpoint : MonoBehaviour
             SaveAxis[i] = float.Parse(PlayerPosition[i].Trim('(').Trim(')'));
         }
         //load player to save location
-        Player.transform.position = new Vector3(SaveAxis[0],SaveAxis[1],SaveAxis[2]);
+        //Player.transform.position = new Vector3(SaveAxis[0],SaveAxis[1],SaveAxis[2]);
        
        
        /*

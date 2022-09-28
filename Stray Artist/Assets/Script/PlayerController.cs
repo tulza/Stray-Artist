@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     //Physic var
     Rigidbody2D rb;
     public Transform _t;
+    public Animator animator;
 
     public float PlayerScaleX;
 
@@ -56,8 +57,8 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(hs,rb.velocity.y);
 
         //flip player to moving direction via
-        if (x < 0) { _t.localScale = new Vector3(PlayerScaleX, _t.localScale.y,1); }
-        else if (x > 0){ _t.localScale = new Vector3(-PlayerScaleX, _t.localScale.y,1); }
+        if (x < 0) { _t.localScale = new Vector3(-PlayerScaleX, _t.localScale.y,1); }
+        else if (x > 0){ _t.localScale = new Vector3(PlayerScaleX, _t.localScale.y,1); }
     }
 
     void Jump()
