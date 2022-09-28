@@ -18,18 +18,16 @@ public class LoadCheckpoint : MonoBehaviour
     //interaction indicator UI
     public CanvasGroup UIFade;
 
-    void Start()
-    {
-        //Load all 
-        LoadPaint();
-    }
-    
 
     void Awake()
     {
+        //Load paint collected for this save
+        PaintCollecting.PaintsCollected = new List<string>();
+
         //alpha of UI starts at 0 meaning 0 opacity
         UIFade.alpha = 0;
-        LoadSave();
+        LoadSave(); // load position
+        UnloadPaint(); // unload collected paints
     }
 
     void Update() 
@@ -39,16 +37,11 @@ public class LoadCheckpoint : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && CanSave == true)
         {
             Debug.Log($"saving at {CpLocation.name}");
-            foreach(string paint in PaintCollecting.PaintsCollected)
-            {
-                //testing to see if it would collect
-                Debug.Log(paint);
-            }
             WriteSave();
         }
     }
 
-    void LoadPaint()
+    void UnloadPaint()
     {
         string[] PaintCollected = File.ReadAllText(PaintSavetxt).Split(",");
 
@@ -69,6 +62,7 @@ public class LoadCheckpoint : MonoBehaviour
                 sw.Close();
             }
         }
+        
         if (! File.Exists(PaintSavetxt))
         {
             using (StreamWriter sw = File.CreateText(PaintSavetxt))
@@ -77,27 +71,25 @@ public class LoadCheckpoint : MonoBehaviour
             }
         }
     
-    
         //read content of save and split by line
         string ReadLctTxt = File.ReadAllText(LocationSavetxt);
 
         //Get saved player position
         string[] PlayerPosition = ReadLctTxt.Split(",");
-        float[] SaveAxis = new float[3]{0,-102,0}; // default
+        float[] SaveAxis = new float[3]{0,-102,0}; // default pos
         
-        //get variable
+        //convert string from to as float array
         for(int i = 0; i < PlayerPosition.Length-1 ; i++)
         {
-            //Convert into float and trim the bracket
             SaveAxis[i] = float.Parse(PlayerPosition[i].Trim('(').Trim(')'));
         }
         //load player to save location
         Player.transform.position = new Vector3(SaveAxis[0],SaveAxis[1],SaveAxis[2]);
        
        
-
-       //Read Paint save
-       string[] PaintCollected = File.ReadAllText(PaintSavetxt).Split(",");
+       /*
+        //Read Paint save
+        string[] PaintCollected = File.ReadAllText(PaintSavetxt).Split(",");
         //Foreach paint that has been collected 
         foreach(string paint in PaintCollected )
         {
@@ -107,6 +99,7 @@ public class LoadCheckpoint : MonoBehaviour
                 GameObject.Find(paint.Trim()).SetActive(false); 
             }
         }
+        */
     }
 
     void WriteSave()
@@ -119,8 +112,8 @@ public class LoadCheckpoint : MonoBehaviour
 
         using (StreamWriter sw = File.CreateText(PaintSavetxt)) 
         {
-            //Save collected Paint
-            sw.WriteLine(string.Join(", ", PaintCollecting.PaintsCollected.ToArray()));
+            //Save collected Paint 
+            sw.WriteLine(string.Join(",", PaintCollecting.PaintsCollected));
         }
     }
 
@@ -162,9 +155,4 @@ public class LoadCheckpoint : MonoBehaviour
         }
     }
 
-
-    void db(string a)
-    {
-        Debug.Log($"==================\n{a}\n==================");
-    }
 }
