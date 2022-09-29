@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Checkpoint
   - Paint
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     //Movement Var
     [SerializeField] public float speed = 3f;
     [SerializeField] public float RunMutiplier = 1.5f;
-    [SerializeField] public float Jumpforce = 15f;
+    [SerializeField] public float Jumpforce = 20f;
     public bool isGrounded;
     
     // Start is called before the first frame update
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         //Get Input
         float x =  Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(x));
 
         //is Running
         float run = 1f;
@@ -68,15 +69,16 @@ public class PlayerController : MonoBehaviour
         {
             //Add force to the y axis to do a jump action
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, Jumpforce), ForceMode2D.Impulse);
+
+            animator.SetBool("IsGrounded", false);
         }
     }
-
-
     
     void OnCollisionEnter2D(Collision2D other) {
         //On collision with the ground => enable jump
         if (other.gameObject.tag == "Ground" && isGrounded == false)
          {
+            animator.SetBool("IsGrounded", true);
              isGrounded = true;
          }
     }
