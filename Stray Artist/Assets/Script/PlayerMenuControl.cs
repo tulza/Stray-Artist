@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMenuControl : MonoBehaviour
 {
     public GameObject EscapeMenuUI;
-    public bool GameIsPause;
+    public static bool GameIsPause;
 
     //Start is called before the first frame update
     private void Start() {
@@ -42,7 +42,8 @@ public class PlayerMenuControl : MonoBehaviour
         GameIsPause = true;
     }
 
-    void Resume()
+    //For Resuming the game, public allows access to button press
+    public void Resume()
     {
         //Close up the EscapeUI, resume time.
         EscapeMenuUI.SetActive(false);

@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Load Game");
         //Load Scene Game
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Tutorial");
     }   
 
     public void QuitGame()

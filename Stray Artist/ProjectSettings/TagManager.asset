@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - Paint
   - Wall
+  - Npc
   layers:
   - Default
   - TransparentFX

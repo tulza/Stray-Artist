@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //Physic var
     Rigidbody2D rb;
+    public GameObject GroundRay;
     public Transform _t;
     public Animator animator;
 
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     
     // Start is called before the first frame update
     void Start() {
-        isGrounded = true;
+        isGrounded = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
         _t = transform;
 
@@ -32,12 +33,33 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
     
-    // Update is called once per frame
+    // FixedUpdate is called 50 times a second
     void FixedUpdate()
     {
-        //Check input every frame
+        //Check input every 50 frame
         move();
+        
+        Vector2 Down = -Vector2.up;
+        //Cast a ray straight down
+        RaycastHit2D OnGround = Physics2D.Raycast (GroundRay.transform.position, Down);
+        Debug.DrawRay (GroundRay.transform.position, Down * OnGround.distance, Color.red);
+
+        //If it hits something with collider
+        if(OnGround.collider != null)
+        {
+            if(OnGround.distance <= 0.1f){
+                animator.SetBool("IsGrounded", true);
+                isGrounded = true;
+            }
+            else{
+                animator.SetBool("IsGrounded", false);
+                isGrounded = false;
+            }
+
+            
+        }
     }
+
 
     void move()
     {
@@ -65,7 +87,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         //Check if player is grounded when jump
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true )
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && PlayerMenuControl.GameIsPause == false )
         {
             //Add force to the y axis to do a jump action
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, Jumpforce), ForceMode2D.Impulse);
@@ -73,8 +95,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsGrounded", false);
         }
     }
+
+
     
-    void OnCollisionEnter2D(Collision2D other) {
+    /*void OnCollisionEnter2D(Collision2D other) {
         //On collision with the ground => enable jump
         if (other.gameObject.tag == "Ground" && isGrounded == false)
          {
@@ -90,5 +114,5 @@ public class PlayerController : MonoBehaviour
          {
              isGrounded = false;
          }
-    }
+    }*/
 }

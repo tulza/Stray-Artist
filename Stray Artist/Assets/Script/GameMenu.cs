@@ -7,7 +7,6 @@ public class GameMenu : MonoBehaviour
 {
     public void BackToGame()
     {
-
     }   
 
     public void Option()
