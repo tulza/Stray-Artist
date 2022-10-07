@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 7b92e209577096243bcb8799fce99cc9
   - enabled: 1
-    path: Assets/Scenes/Escape Menu.unity
+    path: Assets/Scenes/UI Scene/Escape Menu.unity
     guid: a8d9b453d63199d4ebd3eb07eb0f427f
+  - enabled: 1
+    path: Assets/Scenes/UI Scene/Dialogue UI.unity
+    guid: 248765912b4d2fd468113ddca8ff6f3d
   m_configObjects: {}
