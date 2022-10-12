@@ -53,6 +53,15 @@ TagManager:
   - name: Map
     uniqueID: 1756033399
     locked: 0
+  - name: NPC
+    uniqueID: 3812709495
+    locked: 0
   - name: Player
     uniqueID: 2380787031
+    locked: 0
+  - name: FrontMapLayer
+    uniqueID: 4181575329
+    locked: 0
+  - name: FrontMapLayer 2
+    uniqueID: 76734005
     locked: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     //Physic var
     Rigidbody2D rb;
+     Transform _t;
     public GameObject GroundRay;
-    public Transform _t;
     public Animator animator;
 
     public float PlayerScaleX;
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float speed = 3f;
     [SerializeField] public float RunMutiplier = 1.5f;
     [SerializeField] public float Jumpforce = 20f;
+    
+    //Condition
     public bool isGrounded;
     
     // Start is called before the first frame update
@@ -41,13 +44,14 @@ public class PlayerController : MonoBehaviour
         
         Vector2 Down = -Vector2.up;
         //Cast a ray straight down
+        
         RaycastHit2D OnGround = Physics2D.Raycast (GroundRay.transform.position, Down);
-        Debug.DrawRay (GroundRay.transform.position, Down * OnGround.distance, Color.red);
 
+        Debug.DrawRay (GroundRay.transform.position, Down * OnGround.distance, Color.red);
         //If it hits something with collider
         if(OnGround.collider != null)
         {
-            if(OnGround.distance <= 0.1f){
+            if(OnGround.distance <= 0.05f){
                 animator.SetBool("IsGrounded", true);
                 isGrounded = true;
             }
@@ -64,7 +68,7 @@ public class PlayerController : MonoBehaviour
     void move()
     {
         //Get Input
-        float x =  Input.GetAxisRaw("Horizontal");
+         float x =  Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(x));
 
         //is Running
@@ -95,24 +99,4 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsGrounded", false);
         }
     }
-
-
-    
-    /*void OnCollisionEnter2D(Collision2D other) {
-        //On collision with the ground => enable jump
-        if (other.gameObject.tag == "Ground" && isGrounded == false)
-         {
-            animator.SetBool("IsGrounded", true);
-             isGrounded = true;
-         }
-    }
-
-    void OnCollisionExit2D(Collision2D other)
-    {
-        //exiting the collision with the ground => disable jump
-        if (other.gameObject.tag == "Ground")
-         {
-             isGrounded = false;
-         }
-    }*/
 }

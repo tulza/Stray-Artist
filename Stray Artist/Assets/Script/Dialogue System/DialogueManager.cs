@@ -14,8 +14,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
 
     //Use this for initializtion
-    void Start()
-    {
+    void Start(){
         sentences = new Queue<string>();
     }
 
@@ -25,44 +24,49 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log ("Starting dialogue with " + dialogue.name );
+        //Update UI
         nameText.text = dialogue.name;
         ButtonText.text = "[E] Continue >>";
 
+        //Clear previous queue if still exist
         sentences.Clear();
-
+        
+        //Add dialogue to queue
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
-
-        DisplayNextSentence();
+        DisplayNextSentence(); //Start of dialogue
     }
 
     public void DisplayNextSentence()
     {
+        //end the dialogue
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
 
+        //queue next line of dialogue and update canvas
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
 
+        //UI to tell player it is last line of npc dialogue
         if (sentences.Count == 0)
         {
             ButtonText.text = "[E] Close";
         }
         
     }
+    
     public void EndDialogue()
     {
-        
         Debug.Log ("End of log");
         DialogueTrigger.IsInConversation = false;
     }
-    
+
+    //Check if UI dialogue should display    
     public void DisplayUI()
     {
         if(DialogueTrigger.IsInConversation == true)

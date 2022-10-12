@@ -10,6 +10,6 @@ public class UILoader : MonoBehaviour
     {
         //Load escape menu screen as additive instead of replacing
         SceneManager.LoadScene("Escape Menu", LoadSceneMode.Additive);
-        //SceneManager.LoadScene("Dialogue UI", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Dialogue UI", LoadSceneMode.Additive);
     }
 }
