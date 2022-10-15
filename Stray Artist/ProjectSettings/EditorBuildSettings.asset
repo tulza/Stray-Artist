@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI Scene/Dialogue UI.unity
     guid: 248765912b4d2fd468113ddca8ff6f3d
+  - enabled: 1
+    path: Assets/Scenes/Stage 1.unity
+    guid: ec1d97491c6793b4bb90d8e92459f5f8
+  - enabled: 1
+    path: Assets/Scenes/Town(stage selector).unity
+    guid: ba1e05c13d2c0194fbd6ef4cada0f103
   m_configObjects: {}

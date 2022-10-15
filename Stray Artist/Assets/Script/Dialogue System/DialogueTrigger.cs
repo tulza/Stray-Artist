@@ -6,7 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     //name and dialogue of NPC
     public Dialogue dialogue;
-    public Transform NpcGO;
+    public Transform NpcGameObject;
     public Transform InstantiatedTextBox;
     public GameObject TextBoxPrefab;
     //Conditions
@@ -14,7 +14,7 @@ public class DialogueTrigger : MonoBehaviour
     public static bool IsInConversation = false;
 
     private void Start() {
-        InstantiatedTextBox = GameObject.Instantiate(TextBoxPrefab, NpcGO).transform;
+        InstantiatedTextBox = GameObject.Instantiate(TextBoxPrefab, NpcGameObject).transform;
         InstantiatedTextBox.Translate(2,1,0);
     }
 
