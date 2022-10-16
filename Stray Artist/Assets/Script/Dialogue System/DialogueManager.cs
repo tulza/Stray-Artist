@@ -62,14 +62,16 @@ public class DialogueManager : MonoBehaviour
     
     public void EndDialogue()
     {
+        //makes it so the player is no longer talking to npc
         Debug.Log ("End of log");
         DialogueTrigger.IsInConversation = false;
+        CollisionDialgoueTrigger.IsInConversation = false;
     }
 
     //Check if UI dialogue should display    
     public void DisplayUI()
     {
-        if(DialogueTrigger.IsInConversation == true)
+        if(DialogueTrigger.IsInConversation == true || CollisionDialgoueTrigger.IsInConversation == true)
         {
             DialogueUI.SetActive(true);
         }
