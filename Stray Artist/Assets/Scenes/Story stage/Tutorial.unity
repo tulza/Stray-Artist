@@ -553,7 +553,7 @@ SortingGroup:
   m_GameObject: {fileID: 125865481}
   m_Enabled: 1
   m_SortingLayerID: 76734005
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
 --- !u!222 &125865483
 CanvasRenderer:
@@ -629,7 +629,7 @@ Transform:
   m_Children:
   - {fileID: 279902218}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &125865486
 MonoBehaviour:
@@ -12492,7 +12492,7 @@ SortingGroup:
   m_GameObject: {fileID: 739014756}
   m_Enabled: 1
   m_SortingLayerID: -113391967
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
 --- !u!1 &777417726
 GameObject:
@@ -13581,7 +13581,7 @@ SortingGroup:
   m_GameObject: {fileID: 1259393439}
   m_Enabled: 1
   m_SortingLayerID: -482257801
-  m_SortingLayer: 6
+  m_SortingLayer: 3
   m_SortingOrder: 0
 --- !u!1 &1285777842
 GameObject:
@@ -14362,7 +14362,7 @@ SortingGroup:
   m_GameObject: {fileID: 1450834209}
   m_Enabled: 1
   m_SortingLayerID: -113391967
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
 --- !u!1 &1497814490
 GameObject:
@@ -15021,7 +15021,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1679527999
 BoxCollider2D:
@@ -15295,13 +15295,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751973831}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 86.535, y: 46.625, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1946084280}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1788533779
 MonoBehaviour:
@@ -15628,7 +15628,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1914180265
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 3
   m_Sprite: {fileID: -957240395, guid: 79ebea93572891441be2b81910cbb716, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15656,6 +15656,7 @@ Transform:
   - {fileID: 27702265}
   - {fileID: 841630402}
   - {fileID: 1563496328}
+  - {fileID: 1751973834}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15735,7 +15736,7 @@ SortingGroup:
   m_GameObject: {fileID: 1946084273}
   m_Enabled: 1
   m_SortingLayerID: -1914180265
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!1 &1949753736
 GameObject:

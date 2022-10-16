@@ -7,13 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: 0633d7f48bdefe64b9381ca06c289ed9
-  - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: 7b92e209577096243bcb8799fce99cc9
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/UI Scene/Escape Menu.unity
     guid: a8d9b453d63199d4ebd3eb07eb0f427f
@@ -21,12 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/UI Scene/Dialogue UI.unity
     guid: 248765912b4d2fd468113ddca8ff6f3d
   - enabled: 1
-    path: Assets/Scenes/Stage 1.unity
-    guid: ec1d97491c6793b4bb90d8e92459f5f8
+    path: Assets/Scenes/UI Scene/Main Menu.unity
+    guid: 0633d7f48bdefe64b9381ca06c289ed9
   - enabled: 1
-    path: Assets/Scenes/Town(stage selector).unity
+    path: Assets/Scenes/Story stage/Tutorial.unity
+    guid: 7b92e209577096243bcb8799fce99cc9
+  - enabled: 1
+    path: Assets/Scenes/Story stage/Town.unity
     guid: ba1e05c13d2c0194fbd6ef4cada0f103
   - enabled: 1
-    path: Assets/Scenes/The Warehouse.unity
+    path: Assets/Scenes/Story stage/The Warehouse.unity
     guid: 0c15c5b933bb86341bb8ec62fb8f2c09
+  - enabled: 1
+    path: Assets/Scenes/Inside of the warehouse(Stage selector).unity
+    guid: 2fc336fb33b0f1e4fab1967a4af092d8
+  - enabled: 1
+    path: Assets/Scenes/Stage 1.unity
+    guid: ec1d97491c6793b4bb90d8e92459f5f8
   m_configObjects: {}
