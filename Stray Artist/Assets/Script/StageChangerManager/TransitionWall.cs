@@ -7,11 +7,11 @@ public class TransitionWall : MonoBehaviour
 {
     public GameObject FadeSceneChangePrefab;
     public CanvasGroup InstantiatedFadeScreen;
-    public Object sceneToLoad;
+    public string sceneToLoad;
     bool IsChanging = false;
 
     //Get canvasgroup of the Instantiated gameobject
-    void Start() {
+    void Awake() {
         InstantiatedFadeScreen = Instantiate(FadeSceneChangePrefab).GetComponent<CanvasGroup>();
         InstantiatedFadeScreen.alpha = 0;
     }
@@ -26,7 +26,7 @@ public class TransitionWall : MonoBehaviour
         //Only if scene has fully faded
         if(InstantiatedFadeScreen.alpha >= 1)
         {
-            SceneManager.LoadScene(sceneToLoad.name);
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 

@@ -20155,7 +20155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeSceneChangePrefab: {fileID: 5020624900856176858, guid: c785c323ea271e5428099736889a086e, type: 3}
   InstantiatedFadeScreen: {fileID: -9220834396506838504, guid: f30330585b1035c4486c33d5d1420212, type: 3}
-  sceneToLoad: {fileID: 102900000, guid: 0c15c5b933bb86341bb8ec62fb8f2c09, type: 3}
+  sceneToLoad: The Warehouse
 --- !u!61 &1446985897
 BoxCollider2D:
   m_ObjectHideFlags: 0

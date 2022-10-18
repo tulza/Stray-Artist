@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class StageColor
 {
-    public Object SceneToLoad;
+    public string SceneToLoad;
     public Color newColor;
 }

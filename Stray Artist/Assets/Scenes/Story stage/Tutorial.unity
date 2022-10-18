@@ -629,7 +629,7 @@ Transform:
   m_Children:
   - {fileID: 279902218}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &125865486
 MonoBehaviour:
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeSceneChangePrefab: {fileID: 5020624900856176858, guid: c785c323ea271e5428099736889a086e, type: 3}
   InstantiatedFadeScreen: {fileID: -9220834396506838504, guid: f30330585b1035c4486c33d5d1420212, type: 3}
-  sceneToLoad: {fileID: 102900000, guid: ba1e05c13d2c0194fbd6ef4cada0f103, type: 3}
+  sceneToLoad: Town
 --- !u!61 &125865487
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13050,7 +13050,7 @@ Transform:
   m_Children:
   - {fileID: 1050741578}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896660135
 GameObject:
@@ -13251,7 +13251,7 @@ Transform:
   - {fileID: 739014758}
   - {fileID: 1497814491}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1021025487
 GameObject:
@@ -13536,7 +13536,7 @@ Transform:
   m_Children:
   - {fileID: 135689635}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1259393439
 GameObject:
@@ -13570,7 +13570,7 @@ Transform:
   - {fileID: 1379019854}
   - {fileID: 1604792486}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1259393441
 SortingGroup:
@@ -13868,7 +13868,7 @@ Transform:
   m_Children:
   - {fileID: 2018997341}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1330091573
 SortingGroup:
@@ -14037,7 +14037,7 @@ Transform:
   - {fileID: 1703898363}
   - {fileID: 2007616420}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1363664751
 SortingGroup:
@@ -15021,7 +15021,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1679527999
 BoxCollider2D:
@@ -15782,7 +15782,7 @@ Transform:
   m_Children:
   - {fileID: 10197253}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1949753739
 Tilemap:
@@ -16947,37 +16947,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2006316988
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2006316989}
-  m_Layer: 0
-  m_Name: -------------------------------
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2006316989
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006316988}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.004395, y: -107.669556, z: -25.574396}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007616419
 GameObject:
   m_ObjectHideFlags: 0

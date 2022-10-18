@@ -22,7 +22,7 @@ public class PortalManager : MonoBehaviour
         Debug.Log(StageCount);
         Portal.color = Stages[0].newColor;
         CurrentColor = Stages[SelectedStage].newColor;
-        CurrentScene = Stages[SelectedStage].SceneToLoad.name;
+        CurrentScene = Stages[SelectedStage].SceneToLoad;
     }
 
     public void ChangeStageLeft(){
@@ -46,7 +46,7 @@ public class PortalManager : MonoBehaviour
     void ChangePortal(){
         Portal.color = Stages[SelectedStage].newColor;
         CurrentColor = Stages[SelectedStage].newColor;
-        CurrentScene = Stages[SelectedStage].SceneToLoad.name;
+        CurrentScene = Stages[SelectedStage].SceneToLoad;
             Debug.Log(CurrentScene);
     }
 }
