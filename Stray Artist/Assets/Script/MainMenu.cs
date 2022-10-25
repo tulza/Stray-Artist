@@ -26,11 +26,16 @@ public class MainMenu : MonoBehaviour
        ButtonUI.SetActive(true);
     }      
 
+    public void NewGame()
+    {
+        Debug.Log("Loading New Game");
+        LoadSystem.NewGame();
+    } 
+
     public void LoadGame()
     {
-        Debug.Log("Load Game");
-        //Load Scene Game
-        SceneManager.LoadScene("Tutorial");
+        Debug.Log("Continue Game");
+        LoadSystem.ContinueGame();
     }   
 
     public void QuitGame()

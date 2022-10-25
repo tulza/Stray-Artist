@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class TransitionWall : MonoBehaviour
 {
+    
+    public Vector3 LoadToPosition;
+    public string sceneToLoad;
     public GameObject FadeSceneChangePrefab;
     public CanvasGroup InstantiatedFadeScreen;
-    public string sceneToLoad;
+    GameObject Player;
+    
     bool IsChanging = false;
 
     //Get canvasgroup of the Instantiated gameobject
@@ -26,6 +30,7 @@ public class TransitionWall : MonoBehaviour
         //Only if scene has fully faded
         if(InstantiatedFadeScreen.alpha >= 1)
         {
+            RelocatePlayer.repositionPlayer(LoadToPosition);
             SceneManager.LoadScene(sceneToLoad);
         }
     }

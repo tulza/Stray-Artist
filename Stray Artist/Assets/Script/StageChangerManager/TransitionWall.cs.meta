@@ -3,7 +3,9 @@ guid: 4a07b582288149e4ea32c77609295823
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - FadeSceneChangePrefab: {fileID: 5020624900856176858, guid: 1b82281d56942c240b0405bc8d009d30, type: 3}
+  - InstantiatedFadeScreen: {fileID: -9220834396506838504, guid: f30330585b1035c4486c33d5d1420212, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

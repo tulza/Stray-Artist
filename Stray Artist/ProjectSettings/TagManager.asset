@@ -12,6 +12,7 @@ TagManager:
   - Npc
   - Ladder
   - Button
+  - InteractionUI
   layers:
   - Default
   - TransparentFX

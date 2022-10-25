@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
 
     //Use this for initializtion
-    void Start(){
+    void Awake(){
         sentences = new Queue<string>();
     }
 

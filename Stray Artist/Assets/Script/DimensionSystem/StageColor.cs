@@ -7,4 +7,5 @@ public class StageColor
 {
     public string SceneToLoad;
     public Color newColor;
+    public Vector3 LoadToPosition;
 }
