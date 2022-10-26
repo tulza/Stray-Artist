@@ -19,6 +19,7 @@ public class PortalManager : MonoBehaviour
 
 
     void Start() {  
+        //Start stage count from 0
         SelectedStage = 0;
         //count from 1 so to array is -1
         StageCount = Stages.Length-1;
@@ -51,6 +52,7 @@ public class PortalManager : MonoBehaviour
 
     //Change the portal color, and scene destination 
     void ChangePortal(){
+        //change portal
         Portal.color = Stages[SelectedStage].newColor;
         CurrentScene = Stages[SelectedStage].SceneToLoad;
         CurrentLoadToPosition = Stages[SelectedStage].LoadToPosition;

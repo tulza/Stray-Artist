@@ -23,6 +23,7 @@ public class SaveIndicatorFade : MonoBehaviour
         FadePanelSaveIndicator();
     }
 
+    //Fade in the indicator to allow saving
     void AllowSaving(){
         if(SaveSystem.CanSave == true){
             AllowSaveIndicator.alpha += 6 * Time.deltaTime;
@@ -32,13 +33,15 @@ public class SaveIndicatorFade : MonoBehaviour
         }  
     }
 
+    //When saving fade in panel with fancy UI to indicate saving
     void FadePanelSaveIndicator(){
         
         if(isFading == true)
         {
             SaveIndicator.alpha += 5 * Time.deltaTime;
             SaveTimer += 1 * Time.deltaTime;
-
+            
+            //Text timer
             if(SaveTimer>=1.6f)
             {
                 isFading = false;
@@ -57,6 +60,7 @@ public class SaveIndicatorFade : MonoBehaviour
                 SavingTxt.text = "Saving";
             }
         }
+        //If not saving fade out the panel
         else{
             SaveTimer = 0f;
             SaveIndicator.alpha -= 5 * Time.deltaTime;

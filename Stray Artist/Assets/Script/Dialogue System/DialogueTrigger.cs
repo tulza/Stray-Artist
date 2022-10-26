@@ -13,6 +13,7 @@ public class DialogueTrigger : MonoBehaviour
     public bool CanTalk = false;
     public static bool IsInConversation = false;
 
+    //Instance NPC interaction UI
     private void Start() {
         InstantiatedTextBox = GameObject.Instantiate(TextBoxPrefab, NpcGameObject).transform;
         InstantiatedTextBox.Translate(2,1,0);

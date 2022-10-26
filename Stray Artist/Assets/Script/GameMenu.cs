@@ -5,17 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
+    //Resume the game
     public void BackToGame()
     {
         FindObjectOfType<PlayerMenuControl>().Resume();
     }   
 
-    public void Option()
-    {
-
-    }   
-
-    public void SaveAndExit()
+    //Exit to menu
+    public void Exit()
     {
         Time.timeScale = 1f;
         Debug.Log("Exitting");

@@ -369,7 +369,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 874730847}
         m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
-        m_MethodName: SaveAndExit
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -7,7 +7,7 @@ public class RightButton : MonoBehaviour
     bool isOnButton = false;
     void Update()
     {
-        //If on the button
+        //change stage to the Right of the machine
         if(Input.GetKeyDown(KeyCode.E) && isOnButton == true)
         {
             FindObjectOfType<PortalManager>().ChangeStageRight();

@@ -7,7 +7,7 @@ public class LeftButton : MonoBehaviour
     bool isOnButton = false;
     void Update()
     {
-        //If on the button
+        //change stage to the left of the machine
         if(Input.GetKeyDown(KeyCode.E) && isOnButton == true)
         {
             FindObjectOfType<PortalManager>().ChangeStageLeft();

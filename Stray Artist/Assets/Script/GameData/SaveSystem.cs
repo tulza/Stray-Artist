@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-    Transform t_;
+    Transform t_; // Checkpoint transform
     string SaveTextLocation = @"Assets/Save/LocationSave.txt";
     string stage;
     float[] position = new float[3];
@@ -23,6 +23,7 @@ public class SaveSystem : MonoBehaviour
     }
 
     private void Update() {
+        //Save when player press E and is not already saving
         if(Input.GetKeyDown(KeyCode.E) && CanSave == true && SaveIndicatorFade.isFading != true) 
         {
             Debug.Log("Saving Data");
@@ -31,25 +32,29 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
+    //Get checkpoint's axis
     void GetCheckPointData(){
     position[0] = t_.position.x; 
     position[1] = t_.position.y;
     position[2] = t_.position.z;
-    stage = gameObject.scene.name;
+    stage = gameObject.scene.name; //Get stage name
     }
 
+    //Allow saving if player is in range
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Player"){
             CanSave = true;
         }
     }
 
+    //Disable saving if player is not in range
     void OnTriggerExit2D(Collider2D other) {
         if(other.tag == "Player"){
             CanSave = false;
         }
     }
 
+    //Write game data into the game save
     void WriteSave(){
         using (StreamWriter sw = File.CreateText(SaveTextLocation)) 
         {
@@ -63,7 +68,8 @@ public class SaveSystem : MonoBehaviour
     void ClearSave(){
         File.WriteAllText(SaveTextLocation,"");
     }
-
+    
+    //Create a new text file if the text file does not already exist
     void CreateSaveFile(){
         if (! File.Exists(SaveTextLocation))
         {
