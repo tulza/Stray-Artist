@@ -15,6 +15,7 @@ public class GameMenu : MonoBehaviour
     public void Exit()
     {
         Time.timeScale = 1f;
+        SaveSystem.CanSave = false;
         Debug.Log("Exitting");
         SceneManager.LoadScene("Main Menu");
     }
