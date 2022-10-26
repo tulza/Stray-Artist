@@ -13,6 +13,7 @@ TagManager:
   - Ladder
   - Button
   - InteractionUI
+  - PlayerCamera
   layers:
   - Default
   - TransparentFX

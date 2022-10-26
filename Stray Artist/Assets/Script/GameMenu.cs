@@ -7,6 +7,7 @@ public class GameMenu : MonoBehaviour
 {
     public void BackToGame()
     {
+        FindObjectOfType<PlayerMenuControl>().Resume();
     }   
 
     public void Option()

@@ -19,6 +19,7 @@ public class LevitatePlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D Player) {
         if(Player.tag == "Player")
         {
+            PlayerRb = Player.GetComponent<Rigidbody2D>();
             IsOnLevitator = true;
         }
     }

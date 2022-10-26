@@ -16,12 +16,14 @@ public class LoadSystem : MonoBehaviour
     [SerializeField] static public GameObject Player;
 
     public static void ContinueGame(){
+        FindObjectOfType<PlayerLoader>().LoadPlayer();
         LoadSave();
     }
 
     public static void NewGame(){
         ClearSave();
 
+        FindObjectOfType<PlayerLoader>().LoadPlayer();
         Player = GameObject.Find(ObjectTofind);
         Player.transform.position = defaultPosition;
         SceneManager.LoadScene("Tutorial");

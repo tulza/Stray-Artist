@@ -12,7 +12,7 @@ public class SaveSystem : MonoBehaviour
     string stage;
     float[] position = new float[3];
 
-    public bool CanSave = false;
+    public static bool CanSave = false;
 
     void Awake()
     {
@@ -23,9 +23,10 @@ public class SaveSystem : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.E) && CanSave == true)
+        if(Input.GetKeyDown(KeyCode.E) && CanSave == true && SaveIndicatorFade.isFading != true) 
         {
             Debug.Log("Saving Data");
+            SaveIndicatorFade.isFading = true;
             WriteSave();
         }
     }
