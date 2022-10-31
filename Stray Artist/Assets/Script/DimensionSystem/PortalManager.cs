@@ -12,19 +12,20 @@ public class PortalManager : MonoBehaviour
     
 
     public static string CurrentScene;
-    int StageCount;
+    public static int StageIndexCount;
     //Stage count starts at 1;
     public static int SelectedStage = 0;
     public static Vector3 CurrentLoadToPosition;
 
 
     void Start() {  
-        //Start stage count from 0
-        SelectedStage = 0;
+        //Get stage selected from paint manager 
+        SelectedStage = PaintManager.SelectedStage;
+        Pointer.transform.Translate(new Vector3(4f*PaintManager.SelectedStage,0,0));
         //count from 1 so to array is -1
-        StageCount = Stages.Length-1;
-        Debug.Log(StageCount);
-        Portal.color = Stages[0].newColor;
+        StageIndexCount = Stages.Length-1;
+        Debug.Log(StageIndexCount);
+        Portal.color = Stages[SelectedStage].newColor;
         CurrentScene = Stages[SelectedStage].SceneToLoad;
         CurrentLoadToPosition = Stages[SelectedStage].LoadToPosition;
 
@@ -42,7 +43,7 @@ public class PortalManager : MonoBehaviour
 
     //If index is not equal to n number of total stage allow changes to stage to the right
     public void ChangeStageRight(){
-        if(SelectedStage != StageCount)
+        if(SelectedStage != StageIndexCount)
         {
             SelectedStage++;
             Pointer.transform.Translate(new Vector3(4f,0,0));
@@ -52,6 +53,8 @@ public class PortalManager : MonoBehaviour
 
     //Change the portal color, and scene destination 
     void ChangePortal(){
+        //Save current selected stage
+        PaintManager.SelectedStage = SelectedStage;
         //change portal
         Portal.color = Stages[SelectedStage].newColor;
         CurrentScene = Stages[SelectedStage].SceneToLoad;

@@ -57,7 +57,7 @@ public class LoadSystem : MonoBehaviour
                 foreach(string paint in paints){
                     Debug.Log(paint);
                     //add all collected paint in the save to the collected paint list save script
-                    CollectedPaintChecker.CollectedPaint.Add(paint);
+                    PaintManager.CollectedPaint.Add(paint);
                 }
             }
             

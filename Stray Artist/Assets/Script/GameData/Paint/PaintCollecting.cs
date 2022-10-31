@@ -8,7 +8,7 @@ public class PaintCollecting : MonoBehaviour
     public GameObject AlreadyCompletedStagePrefab;
 
     private void Start() {
-        if(CollectedPaintChecker.CollectedPaint.Contains(gameObject.name)){
+        if(PaintManager.CollectedPaint.Contains(gameObject.name)){
         AlreadyCompleteStage();
         Destroy(gameObject);
         }
@@ -20,7 +20,7 @@ public class PaintCollecting : MonoBehaviour
         if(Paint.gameObject.tag == "Player")
         {
             CompleteStage();
-            CollectedPaintChecker.CollectedPaint.Add(gameObject.name);
+            PaintManager.CollectedPaint.Add(gameObject.name);
             Destroy(gameObject);
         }
     }
