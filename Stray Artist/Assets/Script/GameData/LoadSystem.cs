@@ -12,6 +12,7 @@ public class LoadSystem : MonoBehaviour
     static string SaveTextLocation = @"Assets/Save/LocationSave.txt";
     static string scene;
     static Vector3 position;
+    static List<string> CollectedPaint = new List<string>{};
     static Vector3 defaultPosition = new Vector3(-173.07f,-93.25f,0);
     [SerializeField] static public GameObject Player;
 
@@ -48,6 +49,16 @@ public class LoadSystem : MonoBehaviour
             position.x = float.Parse(Vector3Array[0]);
             position.y = float.Parse(Vector3Array[1]);
             position.z = float.Parse(Vector3Array[2]);
+
+            //TODO make more script to allow storage of paint all collect paint so far
+            //Maybe do like list contain true and destroy
+            if(string.IsNullOrEmpty(format[3])!= true)
+            {
+                string[] paints =  format[1].Split(",");
+                foreach(string paint in paints){
+                    CollectedPaint.Add(paint);
+                }
+            }
             
             //Find player and load player to the correct position
             Player = GameObject.Find(ObjectTofind);
