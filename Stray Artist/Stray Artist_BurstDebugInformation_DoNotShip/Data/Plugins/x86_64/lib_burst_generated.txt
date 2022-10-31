@@ -100,11 +100,6 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_MONO
 --compilation-defines=NET_STANDARD_2_0
 --compilation-defines=NET_STANDARD
---compilation-defines=DEVELOPMENT_BUILD
---compilation-defines=ENABLE_PROFILER
---compilation-defines=DEBUG
---compilation-defines=TRACE
---compilation-defines=UNITY_ASSERTIONS
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION
@@ -138,7 +133,6 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_SPRITESHAPE_BURST
 --linker-options=PdbAltPath="Stray Artist_Data/Plugins/x86_64"
 --generate-link-xml=Temp\burst.link.xml
---debug=Full
 --output=T:\Github Repos\Game-Internal\Stray Artist\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
 --root-assembly=T:\Github Repos\Game-Internal\Stray Artist\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=T:\Github Repos\Game-Internal\Stray Artist\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.Runtime.dll
@@ -276,11 +270,6 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_MONO
 --compilation-defines=NET_STANDARD_2_0
 --compilation-defines=NET_STANDARD
---compilation-defines=DEVELOPMENT_BUILD
---compilation-defines=ENABLE_PROFILER
---compilation-defines=DEBUG
---compilation-defines=TRACE
---compilation-defines=UNITY_ASSERTIONS
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION
@@ -314,7 +303,6 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_SPRITESHAPE_BURST
 --linker-options=PdbAltPath="Stray Artist_Data/Plugins/x86_64"
 --generate-link-xml=Temp\burst.link.xml
---debug=Full
 --output=T:\Github Repos\Game-Internal\Stray Artist\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
 --root-assembly=T:\Github Repos\Game-Internal\Stray Artist\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=T:\Github Repos\Game-Internal\Stray Artist\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.Runtime.dll

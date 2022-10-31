@@ -59,7 +59,7 @@ public class SaveSystem : MonoBehaviour
         using (StreamWriter sw = File.CreateText(SaveTextLocation)) 
         {
             //Write Scene, location, and all collected paint into the file
-            sw.Write($"{stage}/{string.Join(",", position)}");
+            sw.Write($"{stage}/{string.Join(",", position)}/{string.Join(",", CollectedPaintChecker.CollectedPaint)}");
             Debug.Log("Saving");
         }
     }
