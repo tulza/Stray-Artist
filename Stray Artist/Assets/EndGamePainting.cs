@@ -8,6 +8,7 @@ public class EndGamePainting : MonoBehaviour
     public CanvasGroup EndIndicator;
     public GameObject Credits;
     public GameObject EnderGameObject;
+    public GameObject invsWall;
     public CanvasGroup ThankYou;
     GameObject Player;
     CanvasGroup CreditsCg;
@@ -20,6 +21,7 @@ public class EndGamePainting : MonoBehaviour
     float timer;
 
     void End(){
+        invsWall.SetActive(true);
         PlayerMenuControl.CanPause = false;
         Destroy(EnderGameObject.GetComponent<BoxCollider2D>());
         Vcam.Follow = EnderGameObject.transform;
@@ -30,6 +32,7 @@ public class EndGamePainting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        invsWall.SetActive(false);
         CreditsCg = Credits.GetComponent<CanvasGroup>();
         Player = GameObject.FindWithTag("Player");
         Vcam = GameObject.FindWithTag("Vcam").GetComponent<CinemachineVirtualCamera>();

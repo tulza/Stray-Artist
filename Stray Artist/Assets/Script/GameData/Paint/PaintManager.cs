@@ -8,9 +8,4 @@ public class PaintManager : MonoBehaviour
     public static List<string> CollectedPaint = new List<string>{};
     //save selected stage here
     public static int SelectedStage = 0;
-
-    private void Start() {
-        CollectedPaint = new List<string>{};
-        SelectedStage = 0;
-    }
 }

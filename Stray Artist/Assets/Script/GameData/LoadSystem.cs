@@ -25,6 +25,9 @@ public class LoadSystem : MonoBehaviour
     public static void NewGame(){
         ClearSave();
 
+        PaintManager.CollectedPaint = new List<string>{};
+        PaintManager.SelectedStage = 0;
+
         FindObjectOfType<PlayerLoader>().LoadPlayer();
         Player = GameObject.Find(ObjectTofind);
         Player.transform.position = defaultPosition;
