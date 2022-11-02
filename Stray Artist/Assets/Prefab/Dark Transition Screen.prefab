@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 6108248485731582020}
   - component: {fileID: 7982481102487905163}
   m_Layer: 0
-  m_Name: Drak Transition Screen
+  m_Name: Dark Transition Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

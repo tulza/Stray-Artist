@@ -23,8 +23,9 @@ public class CollisionDialgoueTrigger : MonoBehaviour
                 FindObjectOfType<DialogueManager>().DisplayNextSentence();
             }
         }
-
     }
+
+    
 
     //If hit the collision play the dialogue/0
     private void OnTriggerEnter2D(Collider2D other) {

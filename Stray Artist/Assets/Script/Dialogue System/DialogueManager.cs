@@ -66,12 +66,13 @@ public class DialogueManager : MonoBehaviour
         Debug.Log ("End of log");
         DialogueTrigger.IsInConversation = false;
         CollisionDialgoueTrigger.IsInConversation = false;
+        LoadEndGame.IsInConversation = false;
     }
 
     //Check if UI dialogue should display    
     public void DisplayUI()
     {
-        if(DialogueTrigger.IsInConversation == true || CollisionDialgoueTrigger.IsInConversation == true)
+        if(DialogueTrigger.IsInConversation == true || CollisionDialgoueTrigger.IsInConversation == true || LoadEndGame.IsInConversation == true)
         {
             DialogueUI.SetActive(true);
         }
