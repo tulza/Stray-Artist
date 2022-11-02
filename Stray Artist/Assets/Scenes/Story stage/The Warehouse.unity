@@ -4980,6 +4980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 225193399}
+  - component: {fileID: 225193400}
   m_Layer: 0
   m_Name: Enviroment
   m_TagString: Untagged
@@ -5004,6 +5005,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &225193400
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225193398}
+  m_Enabled: 1
+  m_SortingLayerID: 1517464085
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &243789940
 GameObject:
   m_ObjectHideFlags: 0
@@ -17216,7 +17228,7 @@ GameObject:
   - component: {fileID: 1609031052}
   - component: {fileID: 1609031053}
   m_Layer: 0
-  m_Name: brightOrange Background
+  m_Name: shade Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24820,6 +24832,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2671880850467942479, guid: 7fcb4f1b2cb604c468285354455d3b88, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3499985
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268029642938080663, guid: 7fcb4f1b2cb604c468285354455d3b88, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.3499985
       objectReference: {fileID: 0}

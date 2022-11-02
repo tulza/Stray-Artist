@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 985033941}
   - component: {fileID: 985033940}
   m_Layer: 5
-  m_Name: Save and Exit
+  m_Name: ' Exit Game'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

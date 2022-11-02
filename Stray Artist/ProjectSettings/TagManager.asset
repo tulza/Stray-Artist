@@ -14,6 +14,7 @@ TagManager:
   - Button
   - InteractionUI
   - PlayerCamera
+  - Vcam
   layers:
   - Default
   - TransparentFX

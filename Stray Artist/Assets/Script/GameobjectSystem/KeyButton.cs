@@ -7,13 +7,16 @@ public class KeyButton : MonoBehaviour
 {
     public GameObject PrefabEmpty;
     GameObject instancedEmpty;
+
     public GameObject ObjectToDestroy;
-    public CinemachineVirtualCamera Vcam;
+    CinemachineVirtualCamera Vcam;
+
     bool Deleted = false;
     bool Looking = false;
     float timer = 0;
 
     private void Start() {
+        Vcam = GameObject.FindWithTag("Vcam").GetComponent<CinemachineVirtualCamera>();
         instancedEmpty = Instantiate(PrefabEmpty, ObjectToDestroy.transform.position, Quaternion.identity);
     }
 
@@ -21,7 +24,7 @@ public class KeyButton : MonoBehaviour
         if(Deleted == true && timer < 2f && Looking == false){
             timer += 1 * Time.deltaTime;
             if(timer >= 1.5f){
-                Vcam.Follow = GameObject.Find("Player").transform;
+                Vcam.Follow = GameObject.FindWithTag("Player").transform;
                 Looking = true;
             }
         }
