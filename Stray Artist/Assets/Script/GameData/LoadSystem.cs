@@ -55,6 +55,7 @@ public class LoadSystem : MonoBehaviour
             //Maybe do like list contain true and destroy
             if(string.IsNullOrEmpty(format[2])!= true)
             {
+                PaintManager.CollectedPaint.Clear();
                 string[] paints = format[2].Split(",");
                 foreach(string paint in paints){
                     Debug.Log(paint);

@@ -12792,6 +12792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlertDisplay: {fileID: 875494801}
+  HasAllPaintPrefab: {fileID: 6180345301058498882, guid: 716090dc3f21bfb4791ad6e0efe288ff, type: 3}
 --- !u!1 &1433482301
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,13 +18,12 @@ public class PortalManager : MonoBehaviour
     public static Vector3 CurrentLoadToPosition;
 
 
-    void Start() {  
+    void Awake() {  
         //Get stage selected from paint manager 
         SelectedStage = PaintManager.SelectedStage;
         Pointer.transform.Translate(new Vector3(4f*PaintManager.SelectedStage,0,0));
         //count from 1 so to array is -1
         StageIndexCount = Stages.Length-1;
-        Debug.Log(StageIndexCount);
         Portal.color = Stages[SelectedStage].newColor;
         CurrentScene = Stages[SelectedStage].SceneToLoad;
         CurrentLoadToPosition = Stages[SelectedStage].LoadToPosition;
