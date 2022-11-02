@@ -6,9 +6,11 @@ public class PlayerMenuControl : MonoBehaviour
 {
     public GameObject EscapeMenuUI;
     public static bool GameIsPause;
+    public static bool CanPause;
 
     //Start is called before the first frame update
     private void Start() {
+        CanPause = true;
         GameIsPause = false;
         EscapeMenuUI.SetActive(false);
     }
@@ -16,7 +18,7 @@ public class PlayerMenuControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && CanPause == true)
         {
             //If game is already paused, resume game
             if(GameIsPause)

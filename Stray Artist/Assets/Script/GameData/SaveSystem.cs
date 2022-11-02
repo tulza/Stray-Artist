@@ -8,7 +8,7 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
     Transform t_; // Checkpoint transform
-    string SaveTextLocation = @"Assets/Save/LocationSave.txt";
+    string SaveTextLocation = @"Stray Artist_Data/LocationSave.txt";
     string stage;
     float[] position = new float[3];
 

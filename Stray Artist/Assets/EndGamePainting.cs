@@ -20,6 +20,7 @@ public class EndGamePainting : MonoBehaviour
     float timer;
 
     void End(){
+        PlayerMenuControl.CanPause = false;
         Destroy(EnderGameObject.GetComponent<BoxCollider2D>());
         Vcam.Follow = EnderGameObject.transform;
         EndIndicator.alpha = 0;
@@ -39,7 +40,7 @@ public class EndGamePainting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   if(isEnding == false){
-            if(Input.GetKeyDown(KeyCode.E)) 
+            if(Input.GetKeyDown(KeyCode.E) && CanEnd == true) 
             {
                 End();
             }
@@ -64,6 +65,7 @@ public class EndGamePainting : MonoBehaviour
 
                 if(timer >= 59f){
                     Destroy(Player);
+                    PlayerMenuControl.CanPause = true;
                     FindObjectOfType<GameMenu>().Exit();
                 }
             }

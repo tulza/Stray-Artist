@@ -9,7 +9,7 @@ public class LoadSystem : MonoBehaviour
 {
     
     static string ObjectTofind = "Player";
-    static string SaveTextLocation = @"Assets/Save/LocationSave.txt";
+    static string SaveTextLocation = @"Stray Artist_Data/LocationSave.txt";
     static string scene;
     static Vector3 position;
     static Vector3 defaultPosition = new Vector3(-173.07f,-93.25f,0);
@@ -49,7 +49,6 @@ public class LoadSystem : MonoBehaviour
             position.y = float.Parse(Vector3Array[1]);
             position.z = float.Parse(Vector3Array[2]);
 
-            //TODO make more script to allow storage of paint all collect paint so far
             //Maybe do like list contain true and destroy
             if(string.IsNullOrEmpty(format[2])!= true)
             {

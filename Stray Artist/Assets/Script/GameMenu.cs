@@ -17,6 +17,7 @@ public class GameMenu : MonoBehaviour
         Time.timeScale = 1f;
         SaveSystem.CanSave = false;
         Debug.Log("Exitting");
+        Destroy(GameObject.FindWithTag("Player"));
         SceneManager.LoadScene("Main Menu");
     }
 }
