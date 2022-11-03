@@ -6,6 +6,7 @@ using Cinemachine;
 public class KeyButton : MonoBehaviour
 {
     public GameObject PrefabEmpty;
+    SpriteRenderer buttonSpriteRenderer;
     GameObject instancedEmpty;
 
     public GameObject ObjectToDestroy;
@@ -16,6 +17,7 @@ public class KeyButton : MonoBehaviour
     float timer = 0;
 
     private void Start() {
+        buttonSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         Vcam = GameObject.FindWithTag("Vcam").GetComponent<CinemachineVirtualCamera>();
         instancedEmpty = Instantiate(PrefabEmpty, ObjectToDestroy.transform.position, Quaternion.identity);
     }
@@ -44,6 +46,7 @@ public class KeyButton : MonoBehaviour
                 //Remove collider and make it jump up a bit
                 Destroy(ObjectToDestroy.GetComponent<BoxCollider2D>());
 
+                buttonSpriteRenderer.color = Color.grey;
                 Vcam.Follow = instancedEmpty.transform;
                 ObjectRigidbody.gravityScale = 1.5f;
                 ObjectRigidbody.AddForce(transform.up * 5f, ForceMode2D.Impulse);
