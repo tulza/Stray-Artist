@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 
     //Instance NPC interaction UI
     private void Start() {
-        InstantiatedTextBox = GameObject.Instantiate(TextBoxPrefab, NpcGameObject).transform;
+        InstantiatedTextBox = Instantiate(TextBoxPrefab, NpcGameObject).transform;
         InstantiatedTextBox.Translate(2,1,0);
     }
 

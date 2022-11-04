@@ -19,6 +19,7 @@ public class TimeChallenge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Initial value of timer
         TimeToDisplay.text = "---";
         PityTimer = initialTimer;
         IsInChallenge = false;
@@ -27,13 +28,16 @@ public class TimeChallenge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && IsInChallenge == false)
+        //If keydown, start the challenge
+        if(Input.GetKeyDown(KeyCode.E) && IsInChallenge == false && CanPlay == true)
         {   
+            //ChallengeObjective(door) is disable to allow the player through during challenge
             IsInChallenge = true;
             ChallengeObjective.SetActive(false);
             CurrentTime = PityTimer;
         }
         
+        //update timer
         TimeDisplay();
     }
 
@@ -41,8 +45,12 @@ public class TimeChallenge : MonoBehaviour
     void TimeDisplay(){
         if(IsInChallenge == true)
         {
+            //make time go down by 1 per second
             CurrentTime -= 1 * Time.deltaTime;
+
+            //Get timer in increment of integer 
             TimeToDisplay.text  = Convert.ToString((int)CurrentTime);
+            //If timer ran out lose challenge 
             if(CurrentTime <= 0)
             {
                 LostChallenge();
@@ -55,7 +63,7 @@ public class TimeChallenge : MonoBehaviour
         TimeToDisplay.text = "---";
         ChallengeObjective.SetActive(true);
         IsInChallenge = false;
-        //Add time by 1;
+        //Add time by 1 to make it easier for the player next time
         PityTimer += 1;
     }
 

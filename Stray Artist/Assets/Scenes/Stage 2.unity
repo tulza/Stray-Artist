@@ -429,6 +429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToFollow: {fileID: 1211474513}
+  PeakUIPrefab: {fileID: 6754204321010966017, guid: a4e3f67737bee5045a218b4af94c967a, type: 3}
+  InstantiatedPeakUICG: {fileID: -9220834396506838504, guid: f30330585b1035c4486c33d5d1420212, type: 3}
   camSize: 30
 --- !u!212 &90576826
 SpriteRenderer:

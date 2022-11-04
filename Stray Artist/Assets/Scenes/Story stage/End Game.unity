@@ -14563,10 +14563,11 @@ MonoBehaviour:
   m_text: "Main Director - Ashton J\n\nMap Director - Ashton J\n\nArea Director -
     Ashton J\n\nProgram Director - Ashton J\n\nObject Programmer - Ashton J\n\nMap
     Programmer - Ashton J\n\nData Programmer - Ashton J\n\nArea Graphic Designer
-    - Ashton J\n\nSound Composer - Ashton J\n\n\n-= Special Thanks =-\n\nOrla Liddle\t\tAnton
-    Kapo\nDylan Hawkins\t\tJerry Fang\nTremain Richmond\t\nChanasit Jitsawatpaiboon
-    (me)\nDream Jitsawatpaiboon\n\nAnd that cat I found on twitter\n\n\n-= Producer
-    =-\nAshton Jitsawatpaiboon\n\n-= Exclusive Producer =-\nAshton Jitsawatpaiboon"
+    - Ashton J\n\nSound Composer - Ashton J\n\nMental Support - Jerry F, Tremain
+    R\n\n-= Special Thanks =-\n\nOrla Liddle\t\tAnton Kapo\nDylan Hawkins\t\tJerry
+    Fang\nTremain Richmond\t\nChanasit Jitsawatpaiboon (me)\nDream Jitsawatpaiboon\n\nAnd
+    that cat I found on twitter\n\n\n-= Producer =-\nAshton Jitsawatpaiboon\n\n-=
+    Exclusive Producer =-\nAshton Jitsawatpaiboon"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6748eb3632eaa6429274e845dda82ca, type: 2}
   m_sharedMaterial: {fileID: 696815058982349830, guid: f6748eb3632eaa6429274e845dda82ca, type: 2}
