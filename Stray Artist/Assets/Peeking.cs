@@ -36,7 +36,7 @@ public class Peeking : MonoBehaviour
             Vcam.Follow = Player.transform;
             }
         }
-
+        
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -51,7 +51,7 @@ public class Peeking : MonoBehaviour
         if(other.tag == "Player")
         {
             CanPeak = false;
-            if(Vcam.Follow == Player.transform){
+            if(Vcam.Follow != Player.transform){
             Vcam.m_Lens.OrthographicSize = playerCam;
             Vcam.Follow = Player.transform;
             }
