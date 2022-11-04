@@ -2157,7 +2157,7 @@ GameObject:
   - component: {fileID: 317280153}
   - component: {fileID: 317280152}
   - component: {fileID: 317280151}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Timed Challage Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
