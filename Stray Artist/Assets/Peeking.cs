@@ -5,15 +5,19 @@ using Cinemachine;
 
 public class Peeking : MonoBehaviour
 {
+
+    //Player and object to follow
     public Transform ObjectToFollow;
     CinemachineVirtualCamera Vcam;
     GameObject Player;
 
+    //UI
     public GameObject PeakUIPrefab;
     public CanvasGroup InstantiatedPeakUICG;
-    
+    //Conditions
     bool IsPeeking = false;
     bool CanPeak = false;
+    //camera management
     public float camSize;
     float playerCam;
     // Start is called before the first frame update

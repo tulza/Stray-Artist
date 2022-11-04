@@ -396,6 +396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e062b7f36b1c5428ded53dedb3242d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChallengeUIPrefab: {fileID: 6754204321010966017, guid: c6719c5107c448c4081d98719a40838e, type: 3}
+  InstantiatedChallengeUICG: {fileID: -9220834396506838504, guid: f30330585b1035c4486c33d5d1420212, type: 3}
   TimeToDisplay: {fileID: 1054102329}
   ChallengeObjective: {fileID: 308505363}
   initialTimer: 15

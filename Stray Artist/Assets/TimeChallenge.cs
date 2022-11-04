@@ -6,7 +6,10 @@ using TMPro;
 
 public class TimeChallenge : MonoBehaviour
 {
-
+    //UI
+    public GameObject ChallengeUIPrefab;
+    public CanvasGroup InstantiatedChallengeUICG;
+    //Timer
     public TextMeshProUGUI TimeToDisplay;
     public GameObject ChallengeObjective;
     public float initialTimer;
@@ -19,6 +22,9 @@ public class TimeChallenge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Instance UI and set alpha to 0
+        InstantiatedChallengeUICG = GameObject.Instantiate(ChallengeUIPrefab).transform.GetChild(0).GetChild(0).GetComponent<CanvasGroup>();
+        InstantiatedChallengeUICG.alpha = 0;
         //Initial value of timer
         TimeToDisplay.text = "---";
         PityTimer = initialTimer;
@@ -39,8 +45,21 @@ public class TimeChallenge : MonoBehaviour
         
         //update timer
         TimeDisplay();
+        //update UI
+        StartIndicator();
+
     }
 
+    void StartIndicator(){
+        //Fade in UI if not in challenge and can play
+        if(IsInChallenge == false && CanPlay){
+            InstantiatedChallengeUICG.alpha += 2 * Time.deltaTime;
+        }
+        //fade out UI
+        else if(CanPlay == false){
+                InstantiatedChallengeUICG.alpha -= 2 * Time.deltaTime;
+        }
+    }
 
     void TimeDisplay(){
         if(IsInChallenge == true)
