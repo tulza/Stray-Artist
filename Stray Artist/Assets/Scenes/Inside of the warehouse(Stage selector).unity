@@ -685,6 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46860abd95463cd49b71c4b824f9206b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrowUIPrefab: {fileID: 6754204321010966017, guid: 0e29f11416d69b742910ce8754a3d68b, type: 3}
+  InstanceArrowUIPrefab: {fileID: -9220834396506838504, guid: f30330585b1035c4486c33d5d1420212, type: 3}
 --- !u!1 &291187465
 GameObject:
   m_ObjectHideFlags: 0
@@ -19837,6 +19839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea94e21f39ab80418c4f8892d89fb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrowUIPrefab: {fileID: 6754204321010966017, guid: 2b29a00f88bbb31438b8c2badb456560, type: 3}
+  InstanceArrowUIPrefab: {fileID: -9220834396506838504, guid: f30330585b1035c4486c33d5d1420212, type: 3}
 --- !u!1 &1549239887
 GameObject:
   m_ObjectHideFlags: 0
